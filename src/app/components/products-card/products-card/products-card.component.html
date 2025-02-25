@@ -1,0 +1,14 @@
+<div [ngClass]="{'selected': isSelected}">
+    <img [src]="product.image" alt="">
+    <!--{{product.name}} - ${{product.price}} --> 
+
+    <!-- Aplica el estilo en verde si el producto está en oferta --> 
+    <p [ngClass]="{'sale-text': product.onSale}">{{product.name}} - ${{product.price}}</p>
+
+    <span *ngIf="!product.inStock" style="color:red;">(Agotado)</span>
+    <button (click)="selectProduct()">{{isSelected ? "Deseleccionar" : "Seleccionar"}}</button>
+</div>
+
+
+
+  

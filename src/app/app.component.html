@@ -1,0 +1,18 @@
+<div class="products-container">
+  <app-products-card *ngFor="let product of products" [product]="product" (selectProductEvent)="selectProduct($event)"></app-products-card>
+</div>
+
+<!-- Detalles del producto seleccionado -->
+<div *ngIf="selectedProduct">
+  <h2>Detalles del Producto Seleccionado</h2>
+  <p><strong>{{ selectedProduct.name }}</strong></p>
+  <p>Precio: ${{ selectedProduct.price }}</p>
+  
+  <p *ngIf="selectedProduct.inStock" style="color: gray;">(En Stock)</p>
+  <p *ngIf="!selectedProduct.inStock" style="color: red;">(Agotado)</p>
+  <!-- Mostrar si está en oferta -->
+  <p *ngIf="selectedProduct.onSale" style="color: green;">En Oferta: Sí</p>
+  <p *ngIf="!selectedProduct.onSale" style="color: gray;">En Oferta: No</p>
+
+</div>
+
